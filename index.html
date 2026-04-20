@@ -5,28 +5,35 @@
   <link rel="stylesheet" href="cazando.css"/>
   <script src="utilitarios.js"></script>
 </head>
+
 <body onload="iniciarJuego()">
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Daniel Anguisaca</p>
-  <canvas id="areaJuego" width="500" height="500"></canvas>
-  <div class="controles">
-    <button onclick="moverArriba();">⬆</button>
-    <br>
-    <button onclick="moverIzquierda();">⬅</button>
-    <button onclick="moverAbajo();">⬇</button>
-    <button onclick="moverDerecha();">➡</button>
+  <div class="contenedor">
+
+    <h1>🎯 Juego Cazando</h1>
+    <p class="autor">Autor: Daniel Anguisaca</p>
+
+    <canvas id="areaJuego" width="500" height="500"></canvas>
+
+    <div class="panel">
+      <span>⭐ Puntos: <span id="puntos">0</span></span>
+      <span>⏱ Tiempo: <span id="tiempo">10</span></span>
+    </div>
+
+    <div class="controles">
+      <button onclick="moverArriba();">⬆</button>
+      <div>
+        <button onclick="moverIzquierda();">⬅</button>
+        <button onclick="moverAbajo();">⬇</button>
+        <button onclick="moverDerecha();">➡</button>
+      </div>
+    </div>
+
+    <button class="reiniciar" onclick="reiniciar();">🔄 REINICIAR</button>
+
+    <p id="mensaje"></p>
+
   </div>
-
-
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
-
-    <button onclick="reiniciar();">REINICIAR</button>
-
-  <p id="mensaje"></p>
 
   <script src="cazando.js"></script>
 
