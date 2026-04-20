@@ -8,30 +8,42 @@
 
 <body onload="iniciarJuego()">
 
-  <div class="contenedor">
+  <div class="game-ui">
 
-    <h1>🎯 Juego Cazando</h1>
-    <p class="autor">Autor: Daniel Anguisaca</p>
+    <header class="top-bar">
+      <h1>🎯 CAZANDO</h1>
+      <p class="autor">by Daniel Anguisaca</p>
+    </header>
 
-    <canvas id="areaJuego" width="500" height="500"></canvas>
-
-    <div class="panel">
-      <span>⭐ Puntos: <span id="puntos">0</span></span>
-      <span>⏱ Tiempo: <span id="tiempo">10</span></span>
-    </div>
-
-    <div class="controles">
-      <button onclick="moverArriba();">⬆</button>
-      <div>
-        <button onclick="moverIzquierda();">⬅</button>
-        <button onclick="moverAbajo();">⬇</button>
-        <button onclick="moverDerecha();">➡</button>
+    <div class="hud">
+      <div class="stat">
+        ⭐ <span>Puntos</span>
+        <strong id="puntos">0</strong>
+      </div>
+      <div class="stat">
+        ⏱ <span>Tiempo</span>
+        <strong id="tiempo">10</strong>
       </div>
     </div>
 
-    <button class="reiniciar" onclick="reiniciar();">🔄 REINICIAR</button>
+    <div class="game-container">
+      <canvas id="areaJuego" width="500" height="500"></canvas>
 
-    <p id="mensaje"></p>
+      <div class="overlay">
+        <p id="mensaje"></p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button onclick="moverArriba()">⬆</button>
+      <div class="middle">
+        <button onclick="moverIzquierda()">⬅</button>
+        <button onclick="moverAbajo()">⬇</button>
+        <button onclick="moverDerecha()">➡</button>
+      </div>
+    </div>
+
+    <button class="btn-restart" onclick="reiniciar()">🔄 REINICIAR</button>
 
   </div>
 
