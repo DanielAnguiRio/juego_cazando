@@ -47,11 +47,41 @@ function limpiarCanva(){
 }
 
 function moverIzquierda(){
-    // mover 10 píxeles a la izquierda
     gatoX = gatoX - 10;
-    // limpiar pantalla
+    if(gatoX < 0){
+        gatoX = 0;
+    }
     limpiarCanva();
-    // volver a dibujar todo
+    graficarGato();
+    graficarComida();
+}
+
+function moverDerecha(){
+    gatoX = gatoX + 10;
+    if(gatoX + ANCHO_GATO > canvas.width){
+        gatoX = canvas.width - ANCHO_GATO;
+    }
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+
+function moverArriba(){
+    gatoY = gatoY - 10;
+    if(gatoY < 0){
+        gatoY = 0;
+    }
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+
+function moverAbajo(){
+    gatoY = gatoY + 10;
+    if(gatoY + ALTO_GATO > canvas.height){
+        gatoY = canvas.height - ALTO_GATO;
+    }
+    limpiarCanva();
     graficarGato();
     graficarComida();
 }
