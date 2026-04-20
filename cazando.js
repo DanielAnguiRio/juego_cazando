@@ -127,3 +127,13 @@ function restarTiempo(){
         alert("SE ACABÓ EL TIEMPO");
     }
 }
+
+function reiniciar(){
+    clearInterval(intervaloTiempo);
+    puntaje = 0;
+    tiempo = 10;
+    mostrarEnSpan("puntos", puntaje);
+    mostrarEnSpan("tiempo", tiempo);
+    limpiarCanva();
+    iniciarJuego();
+}
