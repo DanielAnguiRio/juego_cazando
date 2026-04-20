@@ -36,7 +36,7 @@ function iniciarJuego(){
     graficarGato();
     graficarComida();
 
-    intervaloTiempo = setInterval(restarTiempo, 1000);
+    intervaloTiempo = setInterval(restarTiempo, 2000);
 }
 
 function graficarRectangulo(x, y, ancho, alto, color){
@@ -106,6 +106,11 @@ function detectarColision(){
          gatoY < comidaY + ALTO_COMIDA && gatoY + ALTO_GATO > comidaY){
         puntos = puntos + 1;
         mostrarEnSpan("puntos",puntos);
+        if(puntos == 6){
+            alert("GANADOR!!!!!");
+            clearInterval(intervaloTiempo);
+            return;
+        }    
         comidaX = generarAleatorio(0, canvas.width - ANCHO_COMIDA);
         comidaY = generarAleatorio(0, canvas.height - ALTO_COMIDA);
         limpiarCanva();
