@@ -1,9 +1,19 @@
+
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  background: radial-gradient(circle at top, #020617, #000);
   color: white;
   overflow-x: hidden;
+
+  /* 👇 IMAGEN */
+  background-image: url("https://images.unsplash.com/photo-1511512578047-dfb367046420");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 👇 CAPA OSCURA ENCIMA (PRO) */
+  background-color: rgba(0,0,0,0.6);
+  background-blend-mode: darken;
 }
 
 /* CONTENEDOR GENERAL */
