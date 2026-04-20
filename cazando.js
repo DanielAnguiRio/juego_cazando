@@ -5,6 +5,8 @@ let gatoY;
 let comidaX;
 let comidaY;
 let puntos=0;
+let tiempo=10;
+let intervaloTiempo;
 
 const ALTO_GATO=50;
 const ANCHO_GATO=100;
@@ -33,6 +35,8 @@ function iniciarJuego(){
 
     graficarGato();
     graficarComida();
+
+    intervaloTiempo = setInterval(restarTiempo, 1000);
 }
 
 function graficarRectangulo(x, y, ancho, alto, color){
@@ -107,5 +111,14 @@ function detectarColision(){
         limpiarCanva();
         graficarGato();
         graficarComida();
+    }
+}
+
+function restarTiempo(){
+    tiempo = tiempo - 1;
+    mostrarEnSpan("tiempo", tiempo);
+    if(tiempo == 0){
+        clearInterval(intervaloTiempo);
+        alert("SE ACABÓ EL TIEMPO");
     }
 }
