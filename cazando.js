@@ -5,7 +5,7 @@ let gatoY;
 let comidaX;
 let comidaY;
 let puntos=0;
-let tiempo=10;
+let tiempo=15;
 let intervaloTiempo;
 
 const ALTO_GATO=50;
@@ -14,12 +14,12 @@ const ALTO_COMIDA=50;
 const ANCHO_COMIDA=50;
 
 function graficarGato(){
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "red";
     ctx.fillRect(canvas.width / 2 - 50,canvas.height / 2 - 25,ANCHO_GATO,ALTO_GATO);
 }
 
 function graficarComida(){
-    ctx.fillStyle = "red"; 
+    ctx.fillStyle = "blue"; 
     ctx.fillRect(0,0,ALTO_COMIDA,ANCHO_COMIDA);
 }
 
@@ -45,11 +45,11 @@ function graficarRectangulo(x, y, ancho, alto, color){
 }
 
 function graficarGato(){
-    graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "blue");
+    graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "red");
 }
 
 function graficarComida(){
-    graficarRectangulo(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA, "red");
+    graficarRectangulo(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA, "blue");
 }
 
 function limpiarCanva(){
@@ -78,7 +78,7 @@ function moverDerecha(){
     detectarColision();
 }
 
-function moverArriba(){
+function moverAbajo(){
     gatoY = gatoY - 10;
     if(gatoY < 0){
         gatoY = 0;
@@ -89,7 +89,7 @@ function moverArriba(){
     detectarColision();
 }
 
-function moverAbajo(){
+function moverArriba(){
     gatoY = gatoY + 10;
     if(gatoY + ALTO_GATO > canvas.height){
         gatoY = canvas.height - ALTO_GATO;
@@ -106,8 +106,9 @@ function detectarColision(){
          gatoY < comidaY + ALTO_COMIDA && gatoY + ALTO_GATO > comidaY){
         puntos = puntos + 1;
         mostrarEnSpan("puntos",puntos);
+
         if(puntos == 6){
-            alert("GANADOR!!!!!");
+            alert("GANADOR EL JUEGO");
             clearInterval(intervaloTiempo);
             return;
         }    
@@ -116,6 +117,7 @@ function detectarColision(){
         limpiarCanva();
         graficarGato();
         graficarComida();
+        restarTiempo();
     }
 }
 
@@ -124,14 +126,15 @@ function restarTiempo(){
     mostrarEnSpan("tiempo", tiempo);
     if(tiempo == 0){
         clearInterval(intervaloTiempo);
-        alert("SE ACABÓ EL TIEMPO");
+    }else{
+    
     }
 }
 
 function reiniciar(){
     clearInterval(intervaloTiempo);
     puntaje = 0;
-    tiempo = 10;
+    tiempo = 15;
     mostrarEnSpan("puntos", puntaje);
     mostrarEnSpan("tiempo", tiempo);
     limpiarCanva();
