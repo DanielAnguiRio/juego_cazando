@@ -119,6 +119,9 @@ function detectarColision(){
         graficarComida();
         restarTiempo();
     }
+    if(detectarColision){
+        tiempo = 15;
+    }
 }
 
 function restarTiempo(){
